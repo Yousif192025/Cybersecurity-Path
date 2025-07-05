@@ -24,6 +24,7 @@
             margin-bottom: 40px;
             text-align: center;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: relative; /* Needed for absolute positioning of mobile menu */
         }
         .header-controls {
             display: flex;
@@ -252,6 +253,45 @@
             transform: translateY(-2px);
         }
 
+        /* Mobile menu specific styles */
+        .menu-toggle {
+            display: none; /* Hidden by default on desktop */
+            color: white;
+            font-size: 1.5em;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            left: 20px; /* Adjust for RTL */
+            z-index: 100;
+        }
+
+        .mobile-menu {
+            display: none; /* Hidden by default */
+            flex-direction: column;
+            gap: 10px;
+            background-color: #2c3e50;
+            padding: 20px;
+            position: absolute;
+            top: 0;
+            right: 0; /* Align to right for RTL */
+            width: 0; /* Start hidden */
+            height: 100%;
+            overflow-x: hidden;
+            transition: width 0.3s ease-in-out;
+            z-index: 90;
+        }
+
+        .mobile-menu.active {
+            width: 250px; /* Width when active */
+            display: flex; /* Show when active */
+        }
+        
+        .mobile-menu .header-btn {
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Media queries for responsiveness */
         @media (max-width: 768px) {
             body {
                 padding: 15px;
@@ -266,11 +306,25 @@
                 font-size: 1.5em;
             }
             .header-controls {
-                flex-direction: column;
-                gap: 5px;
+                display: none; /* Hide desktop controls on mobile */
             }
-            .header-btn {
-                width: 100%;
+            .menu-toggle {
+                display: block; /* Show hamburger icon on mobile */
+            }
+            .mobile-menu {
+                position: fixed; /* Fixed to viewport */
+                top: 0;
+                right: 0; /* Position for RTL */
+                height: 100%;
+                background-color: rgba(44, 62, 80, 0.95); /* Semi-transparent background */
+                padding-top: 60px; /* Space for the toggle button */
+                box-shadow: -2px 0 5px rgba(0,0,0,0.2); /* Shadow for sidebar effect */
+                width: 0; /* Initially hidden */
+                transition: width 0.3s ease-in-out;
+                z-index: 95;
+            }
+            .mobile-menu.active {
+                width: 70%; /* Adjust width for mobile sidebar */
             }
             .resources {
                 flex-direction: column;
@@ -294,12 +348,21 @@
 </head>
 <body>
     <header>
-        <div class="header-controls">
+        <i class="fas fa-bars menu-toggle" id="menu-toggle"></i>
+        <nav id="mobile-menu" class="mobile-menu">
             <button id="register-btn" class="header-btn">التسجيل</button>
             <button id="lang-ar-btn" class="header-btn">العربية</button>
             <button id="lang-en-btn" class="header-btn">English</button>
             <button id="search-web-btn" class="header-btn">بحث في الويب</button>
+        </nav>
+        
+        <div class="header-controls" style="display: none;">
+            <button id="register-btn-desktop" class="header-btn">التسجيل</button>
+            <button id="lang-ar-btn-desktop" class="header-btn">العربية</button>
+            <button id="lang-en-btn-desktop" class="header-btn">English</button>
+            <button id="search-web-btn-desktop" class="header-btn">بحث في الويب</button>
         </div>
+
         <div class="header-logos">
             <img src="my-images/log1.png" alt="Logo 1">
             <img src="my-images/logo.png" alt="Logo 2">
@@ -462,7 +525,7 @@
             <li>INE: توفر دورات مجانية ومدفوعة في اختبار الاختراق والأمن السيبراني</li>
         </ul>
         
-        <p><strong>قنوات يوتيوب مفيدة:</strong></p>
+        <p><strong>قنوات يوتيوب مفيدة:</b></p>
         <ul>
             <li>The Cyber Mentor: يقدم دروسًا عملية في اختبار الاختراق والأمن السيبراني</li>
             <li>IppSec: يقدم حلولًا وشروحات لتحديات اختبار الاختراق من منصات مثل Hack The Box</li>
@@ -528,7 +591,7 @@
             <li><a href="https://www.giac.org/certifications/reverse-engineering-malware-grem/" target="_blank">GIAC Reverse Engineering Malware (GREM)</a> - شهادة رائدة في تحليل البرمجيات الخبيثة والهندسة العكسية</li>
         </ul>
         
-        <p><strong>مصادر إضافية:</strong></p>
+        <p><strong>مصادر إضافية:</b></p>
         <ul>
             <li><a href="https://www.malwarebytes.com/blog/category/malwarebytes-labs" target="_blank">Malwarebytes Labs</a>: يقدم أبحاثًا وتحليلات حول أحدث البرامج الضارة</li>
             <li><a href="https://www.corelan.be/" target="_blank">Corelan Team</a>: يقدم موارد تعليمية متقدمة في الهندسة العكسية واستغلال الثغرات</li>
@@ -796,32 +859,68 @@
     </button>
 
     <script>
+        // Get references to elements
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const desktopControls = document.querySelector('.header-controls');
+
+        // Function to handle menu toggle
+        if (menuToggle) {
+            menuToggle.addEventListener('click', function() {
+                mobileMenu.classList.toggle('active');
+            });
+        }
+
+        // Logic to show/hide controls based on screen size (for initial load)
+        function adjustControlsVisibility() {
+            if (window.innerWidth <= 768) {
+                if (desktopControls) desktopControls.style.display = 'none';
+            } else {
+                if (desktopControls) desktopControls.style.display = 'flex';
+                if (mobileMenu) mobileMenu.classList.remove('active'); // Hide mobile menu on desktop
+            }
+        }
+
+        // Run on load and resize
+        window.addEventListener('load', adjustControlsVisibility);
+        window.addEventListener('resize', adjustControlsVisibility);
+
         // Function to handle registration button click
-        document.getElementById('register-btn').addEventListener('click', function() {
-            alert('صفحة التسجيل غير متاحة حاليًا.');
-            // In a real application, you would navigate to a registration page:
-            // window.location.href = '/register.html';
+        document.querySelectorAll('#register-btn, #register-btn-desktop').forEach(button => {
+            button.addEventListener('click', function() {
+                alert('صفحة التسجيل غير متاحة حاليًا.');
+            });
         });
 
-        // Function to handle language change
-        document.getElementById('lang-ar-btn').addEventListener('click', function() {
-            document.documentElement.setAttribute('lang', 'ar');
-            document.documentElement.setAttribute('dir', 'rtl');
-            alert('تم تبديل اللغة إلى العربية. (ملاحظة: المحتوى النصي الكامل يحتاج إلى ترجمة يدوية أو نظام إدارة محتوى)');
+        // Function to handle language change (Arabic)
+        document.querySelectorAll('#lang-ar-btn, #lang-ar-btn-desktop').forEach(button => {
+            button.addEventListener('click', function() {
+                document.documentElement.setAttribute('lang', 'ar');
+                document.documentElement.setAttribute('dir', 'rtl');
+                alert('تم تبديل اللغة إلى العربية. (ملاحظة: المحتوى النصي الكامل يحتاج إلى ترجمة يدوية أو نظام إدارة محتوى)');
+                mobileMenu.classList.remove('active'); // Close menu after selection
+            });
         });
 
-        document.getElementById('lang-en-btn').addEventListener('click', function() {
-            document.documentElement.setAttribute('lang', 'en');
-            document.documentElement.setAttribute('dir', 'ltr');
-            alert('Language switched to English. (Note: Full text content requires manual translation or a content management system)');
+        // Function to handle language change (English)
+        document.querySelectorAll('#lang-en-btn, #lang-en-btn-desktop').forEach(button => {
+            button.addEventListener('click', function() {
+                document.documentElement.setAttribute('lang', 'en');
+                document.documentElement.setAttribute('dir', 'ltr');
+                alert('Language switched to English. (Note: Full text content requires manual translation or a content management system)');
+                mobileMenu.classList.remove('active'); // Close menu after selection
+            });
         });
 
         // Function to handle web search button click
-        document.getElementById('search-web-btn').addEventListener('click', function() {
-            const query = prompt('أدخل ما تريد البحث عنه في الويب:');
-            if (query) {
-                window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}`, '_blank');
-            }
+        document.querySelectorAll('#search-web-btn, #search-web-btn-desktop').forEach(button => {
+            button.addEventListener('click', function() {
+                const query = prompt('أدخل ما تريد البحث عنه في الويب:');
+                if (query) {
+                    window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}`, '_blank');
+                }
+                mobileMenu.classList.remove('active'); // Close menu after action
+            });
         });
 
         // Existing Scroll to Top Button functionality
