@@ -74,11 +74,21 @@
             font-size: 1.1em;
         }
         .phase {
-            background-color: #e0f7fa; /* تم تغيير اللون من #e8f5e9 */
+            background: rgba(44, 82, 130, 0.6); /* تم تغيير اللون بناءً على طلبك */
             padding: 20px;
             border-radius: 8px;
             margin-bottom: 35px;
-            border: 1px solid #b2ebf2; /* تغيير لون الحدود ليناسب اللون الجديد */
+            border: 1px solid rgba(44, 82, 130, 0.8); /* تم تعديل الحدود لتناسب اللون الجديد */
+            color: #f0f8ff; /* تغيير لون النص ليكون واضحًا على الخلفية الداكنة */
+        }
+        .phase h3, .phase h4 {
+            color: #ffffff; /* لجعل العناوين داخل الشرائح بيضاء أو فاتحة */
+        }
+        .phase a {
+            color: #87ceeb; /* لجعل الروابط داخل الشرائح بلون أفتح */
+        }
+        .phase a:hover {
+            color: #b0e0e6;
         }
         .code {
             background-color: #2d2d2d;
@@ -293,7 +303,7 @@
         <ul>
             <li><strong>مستخدمي الأدوات (Tool Users):</strong> لا يحتاجون لبرمجة متقدمة، بل يركزون على إتقان استخدام الأدوات الجاهزة.</li>
             <li><strong>معدلي الأدوات (Tool Modifiers):</strong> يحتاجون فهمًا متوسطًا للبرمجة لتمكينهم من تعديل النصوص البرمجية الموجودة أو تكييفها.</li>
-            <li><strong>صانعي الأدوات (Tool Makers):</strong> يحتاجون خبرة برمجية متقدمة جدًا لكتابة أدوات مخصصة من الصفر أو تطوير حلول معقدة.</li>
+            <li><strong>صانعي الأدوات (Tool Makers):</b> يحتاجون خبرة برمجية متقدمة جدًا لكتابة أدوات مخصصة من الصفر أو تطوير حلول معقدة.</li>
         </ul>
         
         <p><strong>مصادر تعلم البرمجة:</strong></p>
@@ -458,7 +468,7 @@
             <li>Veracode: منصة متخصصة في فحص أمن التطبيقات</li>
         </ul>
         
-        <p><strong>شهادات مقترحة:</strong></p>
+        <p><strong>شهادات مقترحة:</b></p>
         <ul>
             <li><a href="https://www.giac.org/certifications/web-application-penetration-tester-gwapt/" target="_blank">GIAC Web Application Penetration Tester (GWAPT)</a> - شهادة متخصصة في أمن تطبيقات الويب</li>
             <li>eWPT (eLearnSecurity Web Application Penetration Tester)</li>
