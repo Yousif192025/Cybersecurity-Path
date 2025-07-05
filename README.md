@@ -108,19 +108,3 @@
 
 ---
 
-# تحليل بسيط للملفات التنفيذية
-import pefile
-
-def analyze_exe(file_path):
-    try:
-        pe = pefile.PE(file_path)
-        print("تحليل الملف التنفيذي:")
-        print(f"عدد الأقسام: {len(pe.sections)}")
-        for section in pe.sections:
-            print(f"القسم: {section.Name.decode().strip()}")
-    except Exception as e:
-        print(f"خطأ في التحليل: {e}")
-
-analyze_exe("sample.exe")
-
-
