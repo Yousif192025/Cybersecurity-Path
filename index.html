@@ -32,7 +32,7 @@
             margin-bottom: 20px;
         }
         .header-logos img {
-            max-width: 100px;
+            max-width: 100px; /* Adjust as needed */
             height: auto;
             border-radius: 8px;
         }
@@ -193,6 +193,30 @@
             font-size: 1.2em;
             margin-left: 5px;
         }
+        /* Style for Scroll to Top button */
+        #scrollToTopBtn {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 30px; /* Place the button at the bottom of the page */
+            left: 30px; /* Place the button at the left side, adjust for RTL */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: #3498db; /* Set a background color */
+            color: white; /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 15px; /* Some padding */
+            border-radius: 10px; /* Rounded corners */
+            font-size: 18px; /* Increase font size */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        #scrollToTopBtn:hover {
+            background-color: #2980b9; /* Add a darker background on hover */
+            transform: translateY(-2px);
+        }
+
         @media (max-width: 768px) {
             body {
                 padding: 15px;
@@ -213,6 +237,12 @@
                 padding: 15px;
                 font-size: 0.85em;
             }
+            #scrollToTopBtn {
+                bottom: 20px;
+                left: 20px;
+                padding: 12px;
+                font-size: 16px;
+            }
         }
     </style>
 </head>
@@ -223,7 +253,7 @@
             <img src="/Cybersecurity-Path/my-images/logo.png" alt="Logo 2">
         </div>
         <h1>🛡️ الدليل الشامل لبدء التخصص الفني في الأمن السيبراني</h1>
-        <p>دليل إرشادي للمبتدئين والمتخصصين في الجانب التطبيقي للأمن السيبراني </p>
+        <p>مستودع GitHub إرشادي للمبتدئين والمتخصصين في الجانب التطبيقي للأمن السيبراني</p>
     </header>
 
     <div class="intro">
@@ -708,5 +738,11 @@
             <p style="margin-top: 30px; opacity: 0.8;">© Yousif E. Hashim 2025 جميع الحقوق محفوظة</p>
         </div>
     </footer>
+
+    <button onclick="topFunction()" id="scrollToTopBtn" title="العودة للأعلى">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
 </body>
 </html>
