@@ -25,6 +25,26 @@
             text-align: center;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
+        .header-controls {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .header-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+        .header-btn:hover {
+            background-color: #2980b9;
+        }
         .header-logos {
             display: flex;
             justify-content: center;
@@ -245,6 +265,13 @@
             h2 {
                 font-size: 1.5em;
             }
+            .header-controls {
+                flex-direction: column;
+                gap: 5px;
+            }
+            .header-btn {
+                width: 100%;
+            }
             .resources {
                 flex-direction: column;
             }
@@ -267,6 +294,12 @@
 </head>
 <body>
     <header>
+        <div class="header-controls">
+            <button id="register-btn" class="header-btn">التسجيل</button>
+            <button id="lang-ar-btn" class="header-btn">العربية</button>
+            <button id="lang-en-btn" class="header-btn">English</button>
+            <button id="search-web-btn" class="header-btn">بحث في الويب</button>
+        </div>
         <div class="header-logos">
             <img src="my-images/log1.png" alt="Logo 1">
             <img src="my-images/logo.png" alt="Logo 2">
@@ -762,6 +795,50 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <script src="script.js"></script>
+    <script>
+        // Function to handle registration button click
+        document.getElementById('register-btn').addEventListener('click', function() {
+            alert('صفحة التسجيل غير متاحة حاليًا.');
+            // In a real application, you would navigate to a registration page:
+            // window.location.href = '/register.html';
+        });
+
+        // Function to handle language change
+        document.getElementById('lang-ar-btn').addEventListener('click', function() {
+            document.documentElement.setAttribute('lang', 'ar');
+            document.documentElement.setAttribute('dir', 'rtl');
+            alert('تم تبديل اللغة إلى العربية. (ملاحظة: المحتوى النصي الكامل يحتاج إلى ترجمة يدوية أو نظام إدارة محتوى)');
+        });
+
+        document.getElementById('lang-en-btn').addEventListener('click', function() {
+            document.documentElement.setAttribute('lang', 'en');
+            document.documentElement.setAttribute('dir', 'ltr');
+            alert('Language switched to English. (Note: Full text content requires manual translation or a content management system)');
+        });
+
+        // Function to handle web search button click
+        document.getElementById('search-web-btn').addEventListener('click', function() {
+            const query = prompt('أدخل ما تريد البحث عنه في الويب:');
+            if (query) {
+                window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}`, '_blank');
+            }
+        });
+
+        // Existing Scroll to Top Button functionality
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("scrollToTopBtn").style.display = "block";
+            } else {
+                document.getElementById("scrollToTopBtn").style.display = "none";
+            }
+        }
+
+        function topFunction() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+    </script>
 </body>
 </html>
