@@ -227,6 +227,21 @@
         .whatsapp-btn i {
             margin-left: 8px;
         }
+        .contact-btn {
+            display: inline-block;
+            background-color: #3498db; /* A different color to distinguish from WhatsApp */
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 15px;
+            margin-right: 10px; /* Add some margin to the right if next to WhatsApp */
+            transition: background-color 0.3s;
+        }
+        .contact-btn:hover {
+            background-color: #2980b9;
+            text-decoration: none;
+        }
         .emoji {
             font-size: 1.2em;
             margin-left: 5px;
@@ -412,7 +427,7 @@
         <ul>
             <li><strong>مستخدمي الأدوات (Tool Users):</strong> لا يحتاجون لبرمجة متقدمة، بل يركزون على إتقان استخدام الأدوات الجاهزة.</li>
             <li><strong>معدلي الأدوات (Tool Modifiers):</strong> يحتاجون فهمًا متوسطًا للبرمجة لتمكينهم من تعديل النصوص البرمجية الموجودة أو تكييفها.</li>
-            <li><strong>صانعي الأدوات (Tool Makers):</b> يحتاجون خبرة برمجية متقدمة جدًا لكتابة أدوات مخصصة من الصفر أو تطوير حلول معقدة.</li>
+            <li><strong>صانعي الأدوات (Tool Makers):</strong> يحتاجون خبرة برمجية متقدمة جدًا لكتابة أدوات مخصصة من الصفر أو تطوير حلول معقدة.</li>
         </ul>
         
         <p><strong>مصادر تعلم البرمجة: د</strong></p>
@@ -428,7 +443,7 @@
         <p><strong>GNU/Linux:</strong> يُعد نظام التشغيل Linux العمود الفقري للعديد من أدوات الأمن السيبراني والخوادم.</p>
         <ul>
             <li><strong>توزيعات للمبتدئين:</strong> ابدأ بـ Ubuntu لسهولة الاستخدام، ثم انتقل إلى Kali Linux أو Parrot OS بعد التمكن من الأساسيات، حيث توفر هذه التوزيعات أدوات مخصصة للاختبار والاختراق.</li>
-            <li><strong>مصادر عربية لتعلم Linux:</b>
+            <li><strong>مصادر عربية لتعلم Linux:</strong>
                 <ul>
                     <li><a href="https://abotyim.github.io/Learn-Linux-Arabic/" target="_blank">مدونة أبو تيم</a> (مدونة لتعلم GNU/Linux)</li>
                     <li><a href="https://flexcourses.com/" target="_blank">Flex Courses</a> (ابحث عن دورات لينكس)</li>
@@ -518,18 +533,18 @@
             <li><a href="https://www.offensive-security.com/metasploit-unleashed/" target="_blank">Metasploit Unleashed</a>: دليل تعليمي مجاني وشامل لأداة Metasploit</li>
         </ul>
         
-        <p><strong>شهادات معترف بها:</b></p>
+        <p><strong>شهادات معترف بها:</strong></p>
         <ul>
             <li><a href="https://www.offensive-security.com/pwk-oscp/" target="_blank">Offensive Security Certified Professional (OSCP)</a> - تُعد من أشهر وأصعب شهادات اختبار الاختراق</li>
             <li><a href="https://elearnsecurity.com/certifications/ptp-certification/" target="_blank">eLearnSecurity PTP (eJPT)</a> - (يمكن البحث عن دورات eLearnSecurity لتعلم اختبار الاختراق)</li>
         </ul>
         
-        <p><strong>منصات تعليمية إضافية:</b></p>
+        <p><strong>منصات تعليمية إضافية:</strong></p>
         <ul>
             <li>INE: توفر دورات مجانية ومدفوعة في اختبار الاختراق والأمن السيبراني</li>
         </ul>
         
-        <p><strong>قنوات يوتيوب مفيدة:</b></p>
+        <p><strong>قنوات يوتيوب مفيدة:</strong></p>
         <ul>
             <li>The Cyber Mentor: يقدم دروسًا عملية في اختبار الاختراق والأمن السيبراني</li>
             <li>IppSec: يقدم حلولًا وشروحات لتحديات اختبار الاختراق من منصات مثل Hack The Box</li>
@@ -550,7 +565,7 @@
             <li><a href="https://github.com/securityonion/detectionlab" target="_blank">Detection Lab</a>: معمل افتراضي جاهز لمحاكاة بيئات الأمن والاختراق، مفيد للتدريب العملي</li>
         </ul>
         
-        <p><strong>شهادات مقترحة:</b></p>
+        <p><strong>شهادات مقترحة:</strong></p>
         <ul>
             <li>CHFI (Certified Hacking Forensic Investigator) من EC-Council</li>
             <li><a href="https://www.giac.org/certifications/certified-forensic-analyst-gcfa/" target="_blank">GIAC Certified Forensic Analyst (GCFA)</a> - شهادة مرموقة في التحليل الجنائي</li>
@@ -577,7 +592,7 @@
             <li>Veracode: منصة متخصصة في فحص أمن التطبيقات</li>
         </ul>
         
-        <p><strong>شهادات مقترحة:</b></p>
+        <p><strong>شهادات مقترحة:</strong></p>
         <ul>
             <li><a href="https://www.giac.org/certifications/web-application-penetration-tester-gwapt/" target="_blank">GIAC Web Application Penetration Tester (GWAPT)</a> - شهادة متخصصة في أمن تطبيقات الويب</li>
             <li>eWPT (eLearnSecurity Web Application Penetration Tester)</li>
@@ -590,12 +605,12 @@
         
         <p><strong>أدوات مهمة:</strong> IDA Pro, OllyDbg, Ghidra (أدوات تحليل عكسي), Remnux (توزيعة لينكس مخصصة لتحليل البرامج الخبيثة)</p>
         
-        <p><strong>شهادات مقترحة:</b></p>
+        <p><strong>شهادات مقترحة:</strong></p>
         <ul>
             <li><a href="https://www.giac.org/certifications/reverse-engineering-malware-grem/" target="_blank">GIAC Reverse Engineering Malware (GREM)</a> - شهادة رائدة في تحليل البرمجيات الخبيثة والهندسة العكسية</li>
         </ul>
         
-        <p><strong>مصادر إضافية:</b></p>
+        <p><strong>مصادر إضافية:</strong></p>
         <ul>
             <li><a href="https://www.malwarebytes.com/blog/category/malwarebytes-labs" target="_blank">Malwarebytes Labs</a>: يقدم أبحاثًا وتحليلات حول أحدث البرامج الضارة</li>
             <li><a href="https://www.corelan.be/" target="_blank">Corelan Team</a>: يقدم موارد تعليمية متقدمة في الهندسة العكسية واستغلال الثغرات</li>
@@ -720,228 +735,53 @@
             <p>أهم 10 مخاطر أمنية لتطبيقات الويب</p>
             <a href="https://owasp.org/www-project-top-ten/" target="_blank">عرض التقرير</a>
         </div>
-        <div class="resource-card">
-            <h4>PayloadsAllTheThings (GitHub)</h4>
-            <p>مستودع شامل للحمولات والتقنيات</p>
-            <a href="https://github.com/swisskyrepo/PayloadsAllTheThings" target="_blank">عرض المستودع</a>
-        </div>
-        <div class="resource-card">
-            <h4>Awesome-Red-Teaming (GitHub)</h4>
-            <p>قائمة منسقة بموارد الفريق الأحمر</p>
-            <a href="https://github.com/yeyintminthuhtut/Awesome-Red-Teaming" target="_blank">عرض المستودع</a>
-        </div>
     </div>
-
-    <h3>📘 كتب:</h3>
-    <div class="resources">
-        <div class="resource-card">
-            <h4>The Art of Hacking</h4>
-            <p>كتاب شامل عن تقنيات الاختراق</p>
-            <a href="https://drive.google.com/drive/folders/148x_vwHlUIVGZsnST1IkkdvgmbrjHNKI" target="_blank">تحميل الكتاب</a>
-        </div>
-        <div class="resource-card">
-            <h4>Practical Malware Analysis</h4>
-            <p>دليل عملي لتحليل البرمجيات الخبيثة</p>
-            <a href="https://www.amazon.com/Practical-Malware-Analysis-Hands-Dissecting/dp/1593272901" target="_blank">عرض الكتاب</a>
-        </div>
-        <div class="resource-card">
-            <h4>OWASP Free Books</h4>
-            <p>كتب ودلائل مجانية من OWASP</p>
-            <a href="https://owasp.org/www-project-web-security-testing-guide/stable/" target="_blank">عرض الكتب</a>
-        </div>
-        <div class="resource-card">
-            <h4>Springer</h4>
-            <p>ناشر يقدم كتبًا أكاديمية مجانية</p>
-            <a href="https://www.springer.com/gp/computer-science/computer-security" target="_blank">زيارة الموقع</a>
-        </div>
-    </div>
-    
-    <h3>🧰 قوائم بأدوات الأمن السيبراني (Cybersecurity Tools Lists)</h3>
-    <ul>
-        <li><a href="https://sectools.org/" target="_blank">Sectools.org</a> - قائمة شاملة بأفضل أدوات الأمن.</li>
-        <li><a href="https://github.com/rshipp/awesome-malware-analysis" target="_blank">Awesome Malware Analysis</a> - قائمة منسقة بأدوات وموارد تحليل البرمجيات الخبيثة.</li>
-    </ul>
-
-    <h3>🎓 شهادات متقدمة (Advanced Certifications)</h3>
-    <table>
-        <tr>
-            <th>الشهادة</th>
-            <th>الجهة المانحة</th>
-            <th>الرابط</th>
-        </tr>
-        <tr>
-            <td>CISSP</td>
-            <td>(ISC)²</td>
-            <td><a href="https://www.isc2.org/Certifications/CISSP" target="_blank">تفاصيل</a></td>
-        </tr>
-        <tr>
-            <td>CCSP</td>
-            <td>(ISC)²</td>
-            <td><a href="https://www.isc2.org/Certifications/CCSP" target="_blank">تفاصيل</a></td>
-        </tr>
-        <tr>
-            <td>CISA</td>
-            <td>ISACA</td>
-            <td><a href="https://www.isaca.org/credentialing/cisa" target="_blank">تفاصيل</a></td>
-        </tr>
-        <tr>
-            <td>CISM</td>
-            <td>ISACA</td>
-            <td><a href="https://www.isaca.org/credentialing/cism" target="_blank">تفاصيل</a></td>
-        </tr>
-        <tr>
-            <td>AWS Security</td>
-            <td>AWS</td>
-            <td><a href="https://aws.amazon.com/certification/cert-prep/?training-type=digital" target="_blank">تفاصيل</a></td>
-        </tr>
-        <tr>
-            <td>Certified Red Team Professional (CRTP)</td>
-            <td>Pentester Academy</td>
-            <td><a href="https://www.pentesteracademy.com/crtp" target="_blank">تفاصيل</a></td>
-        </tr>
-    </table>
-    
-    <h3>📺 قنوات يوتيوب مفيدة</h3>
-    <ul>
-        <li><a href="https://www.youtube.com/@TheCyberMentor" target="_blank">The Cyber Mentor</a></li>
-        <li><a href="https://www.youtube.com/@_JohnHammond" target="_blank">John Hammond</a></li>
-        <li><a href="https://www.youtube.com/@IppSec" target="_blank">IppSec</a></li>
-        <li><a href="https://www.youtube.com/@hasansaleh" target="_blank">المهندس حسن صالح</a> (ابحث عن "حسن صالح" في يوتيوب)</li>
-        <li><a href="https://www.youtube.com/watch?v=yvS8XRT2HUk" target="_blank">Cybersecurity Channel 6</a></li>
-        <li><a href="https://www.youtube.com/user/digitalnetworksbiz/playlists" target="_blank">Cybersecurity Channel 7</a></li>
-        <li><a href="https://www.youtube.com/c/TheCyberMentor" target="_blank">Cybersecurity Channel 8</a></li>
-        <li><a href="https://www.youtube.com/c/LiveOverflow" target="_blank">Cybersecurity Channel 9</a></li>
-        <li><a href="https://www.youtube.com/@ahmednassarinfosec" target="_blank">Cybersecurity Channel 10</a></li>
-    </ul>
-    
-    <h3>🤝 مجتمعات ومنتديات</h3>
-    <ul>
-        <li><a href="https://www.reddit.com/r/cybersecurity/" target="_blank">Reddit (r/netsec, r/cybersecurity)</a></li>
-        <li><a href="https://stackoverflow.com/questions/tagged/security" target="_blank">Stack Overflow (Security Section)</a></li>
-        <li><a href="https://news.ycombinator.com/" target="_blank">Hacker News</a></li>
-    </ul>
-
-    <h2>💡 نصائح للمبتدئين</h2>
-    <ol>
-        <li><strong>لا تؤجل البداية… ابدأ اليوم!</strong> أفضل وقت للبدء هو الآن</li>
-        <li><strong>ركز على الممارسة العملية</strong> من اليوم الأول، النظرية وحدها لا تكفي</li>
-        <li><strong>اجعل اللغة الإنجليزية رفيقك</strong> في كل دورة أو مقال، معظم المصادر الجديدة باللغة الإنجليزية</li>
-        <li><strong>تابع جديد الأدوات والثغرات</strong> باستمرار، مجال الأمن السيبراني يتطور بسرعة</li>
-        <li><strong>انضم للمجتمعات</strong> وشارك في المناقشات، التعلم الجماعي أكثر فاعلية</li>
-    </ol>
-    
-    <div class="note">
-        <h3>🚀 انضم للمجتمع!</h3>
-        <p>ساهم في تطوير هذا الدليل أو تواصل معنا عبر منصات التواصل الاجتماعي للمزيد من المناقشات والموارد الإضافية.</p>
-    </div>
-    
-    <h2>🔗 روابط سريعة إضافية:</h2>
-    <ul>
-        <li><a href="https://www.comptia.org/content/it-career-roadmap" target="_blank">دليل CompTIA للمسارات المهنية</a></li>
-        <li><a href="https://www.sans.org/free-resources/free-cybersecurity-training/" target="_blank">دورات SANS المجانية</a></li>
-    </ul>
-    
     <footer>
-        <div>
-            <h3>المعهد الأهلي العالي للتدريب</h3>
-            <p>محافظة القريات - المملكة العربية السعودية</p>
-            
-            <div class="contact-info">
-                <i class="fas fa-phone"></i> 0502161465
-            </div>
-            
-            <a href="https://wa.me/966502161465" class="whatsapp-btn">
+        <h3>تواصل معنا</h3>
+        <p class="contact-info">
+            <a href="https://api.whatsapp.com/send?phone=YOUR_PHONE_NUMBER" target="_blank" class="whatsapp-btn">
                 <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
             </a>
-            
-            <p style="margin-top: 30px; opacity: 0.8;">© Yousif E. Hashim 2025 جميع الحقوق محفوظة</p>
-        </div>
+            <a href="contact_form.html" class="contact-btn">تواصل معنا</a>
+        </p>
+        <p>&copy; 2023 الدليل الشامل للتخصص الفني في الأمن السيبراني. جميع الحقوق محفوظة.</p>
     </footer>
 
-    <button onclick="topFunction()" id="scrollToTopBtn" title="العودة للأعلى">
-        <i class="fas fa-arrow-up"></i>
-    </button>
+    <button id="scrollToTopBtn" title="الذهاب للأعلى">⬆️</button>
 
     <script>
-        // Get references to elements
+        // Smooth scroll to top functionality
+        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+        window.onscroll = function() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                scrollToTopBtn.style.display = "block";
+            } else {
+                scrollToTopBtn.style.display = "none";
+            }
+        };
+
+        scrollToTopBtn.addEventListener("click", function() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+
+        // Mobile menu toggle functionality
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
-        const desktopControls = document.querySelector('.header-controls'); // Keep this for desktop buttons
 
-        // Function to handle menu toggle
-        if (menuToggle) {
-            menuToggle.addEventListener('click', function() {
-                mobileMenu.classList.toggle('active');
-            });
-        }
+        menuToggle.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+        });
 
-        // Logic to show/hide controls based on screen size (for initial load)
-        function adjustControlsVisibility() {
-            if (window.innerWidth <= 768) {
-                if (desktopControls) desktopControls.style.display = 'none';
-            } else {
-                if (desktopControls) desktopControls.style.display = 'flex';
-                if (mobileMenu) mobileMenu.classList.remove('active'); // Hide mobile menu on desktop
+        // Close menu when clicking outside (optional, but good for UX)
+        document.addEventListener('click', function(event) {
+            if (!mobileMenu.contains(event.target) && !menuToggle.contains(event.target)) {
+                mobileMenu.classList.remove('active');
             }
-        }
-
-        // Run on load and resize
-        window.addEventListener('load', adjustControlsVisibility);
-        window.addEventListener('resize', adjustControlsVisibility);
-
-        // Function to handle registration button click
-        document.querySelectorAll('#register-btn, #register-btn-desktop').forEach(button => {
-            button.addEventListener('click', function() {
-                alert('صفحة التسجيل غير متاحة حاليًا.');
-            });
         });
-
-        // Function to handle language change (Arabic)
-        document.querySelectorAll('#lang-ar-btn, #lang-ar-btn-desktop').forEach(button => {
-            button.addEventListener('click', function() {
-                document.documentElement.setAttribute('lang', 'ar');
-                document.documentElement.setAttribute('dir', 'rtl');
-                alert('تم تبديل اللغة إلى العربية. (ملاحظة: المحتوى النصي الكامل يحتاج إلى ترجمة يدوية أو نظام إدارة محتوى)');
-                mobileMenu.classList.remove('active'); // Close menu after selection
-            });
-        });
-
-        // Function to handle language change (English)
-        document.querySelectorAll('#lang-en-btn, #lang-en-btn-desktop').forEach(button => {
-            button.addEventListener('click', function() {
-                document.documentElement.setAttribute('lang', 'en');
-                document.documentElement.setAttribute('dir', 'ltr');
-                alert('Language switched to English. (Note: Full text content requires manual translation or a content management system)');
-                mobileMenu.classList.remove('active'); // Close menu after selection
-            });
-        });
-
-        // Function to handle web search button click
-        document.querySelectorAll('#search-web-btn, #search-web-btn-desktop').forEach(button => {
-            button.addEventListener('click', function() {
-                const query = prompt('أدخل ما تريد البحث عنه في الويب:');
-                if (query) {
-                    window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}`, '_blank');
-                }
-                mobileMenu.classList.remove('active'); // Close menu after action
-            });
-        });
-
-        // Existing Scroll to Top Button functionality
-        window.onscroll = function() {scrollFunction()};
-
-        function scrollFunction() {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                document.getElementById("scrollToTopBtn").style.display = "block";
-            } else {
-                document.getElementById("scrollToTopBtn").style.display = "none";
-            }
-        }
-
-        function topFunction() {
-            document.body.scrollTop = 0; // For Safari
-            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-        }
     </script>
 </body>
 </html>
