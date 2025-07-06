@@ -1,0 +1,34 @@
+/* it-cybersecurity.css */
+
+/* Add specific styles for the IT Cybersecurity page here */
+
+/* Example: Differentiate service sections visually */
+.service-section {
+    background-color: #fcfcfc;
+    border: 1px solid #e0e0e0;
+}
+
+.service-section:nth-child(even) {
+    background-color: #f0f8ff; /* Light blue background for even sections */
+}
+
+/* Enhancements for images within service sections */
+.service-section img {
+    border: 1px solid #ddd;
+    padding: 5px;
+    background-color: #fff;
+}
+
+/* Adjustments for headings within service sections */
+.service-section h3 {
+    color: #0056b3; /* Darker blue for service headings */
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed #a0d4ff;
+}
+
+/* Spacing for lists */
+.service-section ul {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
