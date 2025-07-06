@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🛡️ الدليل الشامل للتخصص الفني في الأمن السيبراني</title>
-    <link rel="icon" href="my-images/image2.png" type="image/png">
+    <link rel="icon" href="images/image2.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
     <style>
+        /* Basic styles from main.css that are essential for this page too */
         body {
             font-family: 'Tahoma', Arial, sans-serif;
             line-height: 1.8;
@@ -350,13 +352,15 @@
     <header>
         <i class="fas fa-bars menu-toggle" id="menu-toggle"></i>
         <nav id="mobile-menu" class="mobile-menu">
+            <a href="it-cybersecurity.html" class="header-btn">الأمن السيبراني لتكنولوجيا المعلومات</a>
             <button id="register-btn" class="header-btn">التسجيل</button>
             <button id="lang-ar-btn" class="header-btn">العربية</button>
             <button id="lang-en-btn" class="header-btn">English</button>
             <button id="search-web-btn" class="header-btn">بحث في الويب</button>
         </nav>
         
-        <div class="header-controls" style="display: none;">
+        <div class="header-controls">
+            <a href="it-cybersecurity.html" class="header-btn">الأمن السيبراني لتكنولوجيا المعلومات</a>
             <button id="register-btn-desktop" class="header-btn">التسجيل</button>
             <button id="lang-ar-btn-desktop" class="header-btn">العربية</button>
             <button id="lang-en-btn-desktop" class="header-btn">English</button>
@@ -364,8 +368,8 @@
         </div>
 
         <div class="header-logos">
-            <img src="my-images/log1.png" alt="Logo 1">
-            <img src="my-images/logo.png" alt="Logo 2">
+            <img src="images/log1.png" alt="Logo 1">
+            <img src="images/logo.png" alt="Logo 2">
         </div>
         <h1>🛡️ الدليل الشامل للتخصص الفني في الأمن السيبراني</h1>
         <p>🧩 خريطة طريق شاملة لفهم وتطبيق الأمن السيبراني بمهارة</p>
@@ -411,7 +415,7 @@
             <li><strong>صانعي الأدوات (Tool Makers):</b> يحتاجون خبرة برمجية متقدمة جدًا لكتابة أدوات مخصصة من الصفر أو تطوير حلول معقدة.</li>
         </ul>
         
-        <p><strong>مصادر تعلم البرمجة:</strong></p>
+        <p><strong>مصادر تعلم البرمجة: د</strong></p>
         <ul>
             <li><a href="https://www.flexcourses.com/" target="_blank">Flex Courses</a> (منصة عربية - ابحث داخلها عن دورات البرمجة)</li>
             <li><a href="https://www.freecodecamp.org/" target="_blank">freeCodeCamp</a> (منصة إنجليزية مجانية وشاملة)</li>
@@ -426,7 +430,7 @@
             <li><strong>توزيعات للمبتدئين:</strong> ابدأ بـ Ubuntu لسهولة الاستخدام، ثم انتقل إلى Kali Linux أو Parrot OS بعد التمكن من الأساسيات، حيث توفر هذه التوزيعات أدوات مخصصة للاختبار والاختراق.</li>
             <li><strong>مصادر عربية لتعلم Linux:</b>
                 <ul>
-                    <li><a href="https://abu-taim.blogspot.com/" target="_blank">مدونة أبو تيم</a> (مدونة لتعلم GNU/Linux)</li>
+                    <li><a href="https://abotyim.github.io/Learn-Linux-Arabic/" target="_blank">مدونة أبو تيم</a> (مدونة لتعلم GNU/Linux)</li>
                     <li><a href="https://flexcourses.com/" target="_blank">Flex Courses</a> (ابحث عن دورات لينكس)</li>
                 </ul>
             </li>
@@ -445,13 +449,13 @@
         <h4>🌐 4. الشبكات</h4>
         <p>تُعتبر الشبكات هي البيئة التي تحدث فيها معظم الهجمات الدفاعية والهجومية.</p>
         
-        <p><strong>دورات أساسية:</strong></p>
+        <p><strong>دورات أساسية: د</strong></p>
         <ul>
             <li><a href="https://www.comptia.org/certifications/network" target="_blank">CompTIA Network+</a> - تغطي أساسيات الشبكات ومفاهيمها</li>
             <li><a href="https://www.cisco.com/c/en/us/training-events/training-certifications/certifications/associate/ccna.html" target="_blank">Cisco CCNA</a> - شهادة متقدمة قليلاً في تصميم وإدارة شبكات سيسكو</li>
         </ul>
         
-        <p><strong>أدوات محاكاة للتدريب العملي:</strong></p>
+        <p><strong>أدوات محاكاة للتدريب العملي: د</strong></p>
         <ul>
             <li>Packet Tracer: أداة رائعة للمبتدئين لمحاكاة شبكات سيسكو</li>
             <li>GNS3: أداة محاكاة شبكات متقدمة تدعم أجهزة متعددة</li>
@@ -862,7 +866,7 @@
         // Get references to elements
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
-        const desktopControls = document.querySelector('.header-controls');
+        const desktopControls = document.querySelector('.header-controls'); // Keep this for desktop buttons
 
         // Function to handle menu toggle
         if (menuToggle) {
