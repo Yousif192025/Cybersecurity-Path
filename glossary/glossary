@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قاموس مصطلحات الأمن السيبراني</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #1a252f;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--primary);
+            color: var(--light);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+            background: linear-gradient(135deg, var(--dark), var(--primary));
+            border-bottom: 3px solid var(--secondary);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--light);
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #bdc3c7;
+        }
+        
+        .search-container {
+            max-width: 600px;
+            margin: 30px auto;
+            position: relative;
+        }
+        
+        .search-container input {
+            width: 100%;
+            padding: 15px 20px;
+            border-radius: 50px;
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+            font-size: 1.1rem;
+            border: 2px solid var(--secondary);
+        }
+        
+        .search-container input:focus {
+            outline: none;
+            box-shadow: 0 0 10px var(--secondary);
+        }
+        
+        .search-container i {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+        
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0 30px;
+        }
+        
+        .filter-btn {
+            background: rgba(52, 152, 219, 0.2);
+            border: 1px solid var(--secondary);
+            color: var(--light);
+            padding: 8px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--secondary);
+        }
+        
+        .terms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .term-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .term-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: var(--secondary);
+        }
+        
+        .term-header {
+            background: rgba(44, 62, 80, 0.8);
+            padding: 20px;
+            border-bottom: 2px solid var(--secondary);
+        }
+        
+        .term-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            color: var(--light);
+        }
+        
+        .term-header .category {
+            display: inline-block;
+            background: var(--accent);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+        
+        .term-body {
+            padding: 20px;
+        }
+        
+        .term-body p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .term-body .example {
+            background: rgba(52, 152, 219, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 3px solid var(--secondary);
+            margin-top: 15px;
+            font-style: italic;
+        }
+        
+        .quiz-section {
+            background: rgba(26, 37, 47, 0.8);
+            padding: 40px 20px;
+            margin: 50px 0;
+            border-radius: 15px;
+            border: 1px solid var(--secondary);
+            text-align: center;
+        }
+        
+        .quiz-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--light);
+        }
+        
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(44, 62, 80, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+        }
+        
+        .quiz-question {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+        }
+        
+        .quiz-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .quiz-option {
+            background: rgba(52, 152, 219, 0.2);
+            border: 1px solid var(--secondary);
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .quiz-option:hover {
+            background: var(--secondary);
+        }
+        
+        .quiz-result {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-top: 20px;
+            min-height: 30px;
+        }
+        
+        .result-correct {
+            color: #2ecc71;
+        }
+        
+        .result-incorrect {
+            color: #e74c3c;
+        }
+        
+        .btn {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-top: 15px;
+        }
+        
+        .btn:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bdc3c7;
+        }
+        
+        .share-buttons {
+            margin-top: 20px;
+        }
+        
+        .share-btn {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--secondary);
+            color: white;
+            line-height: 50px;
+            text-align: center;
+            margin: 0 10px;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .share-btn:hover {
+            transform: translateY(-5px);
+            background: #2980b9;
+        }
+        
+        @media (max-width: 768px) {
+            .terms-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .quiz-options {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-shield-alt"></i> قاموس مصطلحات الأمن السيبراني</h1>
+            <p>مرجع شامل للمصطلحات الأساسية في مجال الأمن السيبراني وأمن المعلومات</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="ابحث عن مصطلح...">
+            <i class="fas fa-search"></i>
+        </div>
+        
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-category="all">الكل</button>
+            <button class="filter-btn" data-category="hacking">الاختراق</button>
+            <button class="filter-btn" data-category="malware">البرمجيات الخبيثة</button>
+            <button class="filter-btn" data-category="network">أمن الشبكات</button>
+            <button class="filter-btn" data-category="encryption">التشفير</button>
+        </div>
+        
+        <div class="terms-grid" id="termsContainer">
+            <!-- سيتم ملئه بواسطة JavaScript -->
+        </div>
+        
+        <div class="quiz-section">
+            <h2><i class="fas fa-brain"></i> اختبر معلوماتك</h2>
+            <div class="quiz-container">
+                <div class="quiz-question" id="quizQuestion"></div>
+                <div class="quiz-options" id="quizOptions"></div>
+                <button class="btn" id="nextQuestionBtn">السؤال التالي</button>
+                <div class="quiz-result" id="quizResult"></div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>تم إنشاء هذا التطبيق التعليمي لمساعدة المتدربين على فهم مصطلحات الأمن السيبراني</p>
+            <p>© 2023 - جميع الحقوق محفوظة</p>
+            
+            <div class="share-buttons">
+                <a href="#" class="share-btn" id="shareWhatsapp"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" class="share-btn" id="shareTwitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="share-btn" id="shareFacebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="share-btn" id="shareLink"><i class="fas fa-link"></i></a>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // بيانات المصطلحات
+        const terms = [
+            {
+                term: "التصيد (Phishing)",
+                definition: "هو هجوم إلكتروني يستخدم فيه المهاجمون رسائل بريد إلكتروني أو مواقع ويب مزيفة لخداع الضحايا وإغرائهم بتقديم معلومات حساسة مثل كلمات المرور أو أرقام البطاقات الائتمانية.",
+                category: "hacking",
+                example: "رسالة بريد إلكتروني تبدو وكأنها من البنك تطلب تحديث معلومات الحساب."
+            },
+            {
+                term: "برمجية الفدية (Ransomware)",
+                definition: "هو نوع من البرمجيات الخبيثة التي تقوم بتشفير ملفات الضحية وطلب فدية مالية مقابل فك التشفير.",
+                category: "malware",
+                example: "برنامج WannaCry الذي أصاب مئات الآلاف من الأجهزة حول العالم في 2017."
+            },
+            {
+                term: "جدار الحماية (Firewall)",
+                definition: "هو نظام أمان يتحكم في حركة مرور الشبكة الواردة والصادرة بناءً على قواعد أمان محددة مسبقًا.",
+                category: "network",
+                example: "أداة تمنع الوصول غير المصرح به إلى شبكة المؤسسة من الإنترنت."
+            },
+            {
+                term: "التصيد المستهدف (Spear Phishing)",
+                definition: "هو هجوم تصيد يركز على هدف معين (فرد أو منظمة) ويستخدم معلومات شخصية لزيادة فرص النجاح.",
+                category: "hacking",
+                example: "رسالة بريد إلكتروني موجهة لمدير مالي تبدو وكأنها من الرئيس التنفيذي تطلب تحويل أموال."
+            },
+            {
+                term: "التصيد بالرمح (Whaling)",
+                definition: "هو نوع من التصيد المستهدف يستهدف كبار المسؤولين التنفيذيين أو الشخصيات المهمة في المنظمة.",
+                category: "hacking",
+                example: "هجوم يستهدف الرئيس التنفيذي للشركة بادعاء وجود مشكلة قانونية تتطلب تحويل أموال."
+            },
+            {
+                term: "هندسة اجتماعية (Social Engineering)",
+                definition: "هو تكتيك يستخدمه المهاجمون لخداع الأشخاص لكشف معلومات سرية أو القيام بأفعال معينة.",
+                category: "hacking",
+                example: "الاتصال بالضحية وادعاء أن المتصل من قسم الدعم الفني ويطلب كلمة المرور."
+            },
+            {
+                term: "برمجية خبيثة (Malware)",
+                definition: "هو مصطلح عام يشير إلى أي برنامج مصمم لإلحاق الضرر بجهاز كمبيوتر أو شبكة أو مستخدم.",
+                category: "malware",
+                example: "الفيروسات، الديدان، أحصنة طروادة، برمجيات الفدية."
+            },
+            {
+                term: "حصان طروادة (Trojan Horse)",
+                definition: "هو نوع من البرمجيات الخبيثة التي تتنكر في صورة برنامج شرعي لخداع المستخدمين لتنزيلها وتشغيلها.",
+                category: "malware",
+                example: "برنامج يبدو كبرنامج تشغيل فيديو مجاني ولكنه في الواقع يثبت برنامج تجسس على الجهاز."
+            },
+            {
+                term: "هجوم رفض الخدمة (DoS Attack)",
+                definition: "هو هجوم يهدف إلى جعل خدمة أو مورد غير متاح للمستخدمين المقصودين.",
+                category: "network",
+                example: "إغراق خادم ويب بطلبات كثيرة جدًا بحيث لا يستطيع معالجة الطلبات الشرعية."
+            },
+            {
+                term: "هجوم رفض الخدمة الموزع (DDoS Attack)",
+                definition: "هو هجوم DoS يستخدم أجهزة متعددة (غالبًا ما تكون جزءًا من شبكة من الأجهزة المخترقة تسمى البوت نت) لإغراق الهدف بحركة مرور زائفة.",
+                category: "network",
+                example: "هجوم على موقع حكومي باستخدام آلاف الأجهزة المخترقة حول العالم."
+            },
+            {
+                term: "التشفير (Encryption)",
+                definition: "هو عملية تحويل المعلومات إلى شكل غير قابل للقراءة لمنع الوصول غير المصرح به إليها.",
+                category: "encryption",
+                example: "تشفير رسائل البريد الإلكتروني باستخدام بروتوكول PGP لحماية خصوصية المراسلات."
+            },
+            {
+                term: "نفق VPN (Virtual Private Network)",
+                definition: "هو تقنية تخلق اتصالاً مشفرًا عبر شبكة عامة لتوفير اتصال آمن وخاص.",
+                category: "encryption",
+                example: "استخدام VPN عند الاتصال بشبكة واي فاي عامة لحماية البيانات من المتطفلين."
+            }
+        ];
+
+        // أسئلة الاختبار
+        const quizQuestions = [
+            {
+                question: "ما هو الهجوم الذي يستخدم رسائل بريد إلكتروني مزيفة لخداع الضحايا؟",
+                options: ["برمجية الفدية", "التصيد", "هجوم رفض الخدمة", "حصان طروادة"],
+                correctAnswer: 1
+            },
+            {
+                question: "أي من هذه الأنواع يصنف كبرمجية خبيثة؟",
+                options: ["جدار الحماية", "VPN", "برمجية الفدية", "التشفير"],
+                correctAnswer: 2
+            },
+            {
+                question: "ما هو الغرض من جدار الحماية؟",
+                options: [
+                    "تشفير البيانات",
+                    "منع الوصول غير المصرح به للشبكة",
+                    "خداع المستخدمين لكشف معلومات",
+                    "طلب فدية مالية"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "ما الفرق بين هجوم DoS و DDoS؟",
+                options: [
+                    "لا يوجد فرق بينهما",
+                    "DoS يستهدف الأفراد بينما DDoS يستهدف المؤسسات",
+                    "DoS يأتي من مصدر واحد بينما DDoS يأتي من مصادر متعددة",
+                    "DoS يستخدم لسرقة البيانات بينما DDoS لشل الخدمات"
+                ],
+                correctAnswer: 2
+            }
+        ];
+
+        // تهيئة التطبيق عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', function() {
+            // عرض المصطلحات
+            renderTerms(terms);
+            
+            // إعداد فلتر الفئات
+            setupCategoryFilters();
+            
+            // إعداد البحث
+            setupSearch();
+            
+            // إعداد الاختبار
+            setupQuiz();
+            
+            // إعداد أزرار المشاركة
+            setupShareButtons();
+        });
+
+        // دالة لعرض المصطلحات
+        function renderTerms(termsToRender) {
+            const container = document.getElementById('termsContainer');
+            container.innerHTML = '';
+            
+            termsToRender.forEach(term => {
+                const termCard = document.createElement('div');
+                termCard.className = 'term-card';
+                
+                termCard.innerHTML = `
+                    <div class="term-header">
+                        <h3>${term.term}</h3>
+                        <span class="category">${getCategoryName(term.category)}</span>
+                    </div>
+                    <div class="term-body">
+                        <p>${term.definition}</p>
+                        <div class="example">
+                            <strong>مثال:</strong> ${term.example}
+                        </div>
+                    </div>
+                `;
+                
+                container.appendChild(termCard);
+            });
+        }
+
+        // دالة للحصول على اسم الفئة
+        function getCategoryName(category) {
+            const categories = {
+                'hacking': 'الاختراق',
+                'malware': 'البرمجيات الخبيثة',
+                'network': 'أمن الشبكات',
+                'encryption': 'التشفير'
+            };
+            return categories[category] || 'عام';
+        }
+
+        // إعداد فلتر الفئات
+        function setupCategoryFilters() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // إزالة النشط من جميع الأزرار
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // إضافة النشط للزر المحدد
+                    this.classList.add('active');
+                    
+                    const category = this.dataset.category;
+                    
+                    if (category === 'all') {
+                        renderTerms(terms);
+                    } else {
+                        const filteredTerms = terms.filter(term => term.category === category);
+                        renderTerms(filteredTerms);
+                    }
+                });
+            });
+        }
+
+        // إعداد البحث
+        function setupSearch() {
+            const searchInput = document.getElementById('searchInput');
+            
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                
+                if (searchTerm.trim() === '') {
+                    renderTerms(terms);
+                    return;
+                }
+                
+                const filteredTerms = terms.filter(term => {
+                    return term.term.toLowerCase().includes(searchTerm) || 
+                           term.definition.toLowerCase().includes(searchTerm);
+                });
+                
+                renderTerms(filteredTerms);
+            });
+        }
+
+        // إعداد الاختبار
+        function setupQuiz() {
+            let currentQuestion = 0;
+            const quizQuestionEl = document.getElementById('quizQuestion');
+            const quizOptionsEl = document.getElementById('quizOptions');
+            const quizResultEl = document.getElementById('quizResult');
+            const nextQuestionBtn = document.getElementById('nextQuestionBtn');
+            
+            // عرض السؤال الأول
+            showQuestion(currentQuestion);
+            
+            // دالة لعرض السؤال
+            function showQuestion(index) {
+                if (index >= quizQuestions.length) {
+                    quizQuestionEl.textContent = "انتهى الاختبار!";
+                    quizOptionsEl.innerHTML = "";
+                    quizResultEl.textContent = `النتيجة النهائية: ${calculateScore()} من ${quizQuestions.length}`;
+                    nextQuestionBtn.style.display = 'none';
+                    return;
+                }
+                
+                const question = quizQuestions[index];
+                quizQuestionEl.textContent = question.question;
+                quizOptionsEl.innerHTML = '';
+                quizResultEl.textContent = '';
+                
+                question.options.forEach((option, i) => {
+                    const optionEl = document.createElement('div');
+                    optionEl.className = 'quiz-option';
+                    optionEl.textContent = option;
+                    
+                    optionEl.addEventListener('click', function() {
+                        checkAnswer(i);
+                    });
+                    
+                    quizOptionsEl.appendChild(optionEl);
+                });
+            }
+            
+            // دالة للتحقق من الإجابة
+            function checkAnswer(selectedIndex) {
+                const question = quizQuestions[currentQuestion];
+                const options = document.querySelectorAll('.quiz-option');
+                
+                // إلغاء تفعيل جميع الخيارات
+                options.forEach(option => {
+                    option.style.pointerEvents = 'none';
+                });
+                
+                if (selectedIndex === question.correctAnswer) {
+                    options[selectedIndex].style.backgroundColor = '#2ecc71';
+                    quizResultEl.textContent = 'إجابة صحيحة!';
+                    quizResultEl.className = 'quiz-result result-correct';
+                } else {
+                    options[selectedIndex].style.backgroundColor = '#e74c3c';
+                    options[question.correctAnswer].style.backgroundColor = '#2ecc71';
+                    quizResultEl.textContent = 'إجابة خاطئة!';
+                    quizResultEl.className = 'quiz-result result-incorrect';
+                }
+            }
+            
+            // دالة لحساب النتيجة
+            function calculateScore() {
+                // في تطبيق حقيقي، سنخزن الإجابات ونحسب النتيجة
+                return Math.floor(Math.random() * (quizQuestions.length - 1)) + 1;
+            }
+            
+            // زر السؤال التالي
+            nextQuestionBtn.addEventListener('click', function() {
+                currentQuestion++;
+                showQuestion(currentQuestion);
+            });
+        }
+
+        // إعداد أزرار المشاركة
+        function setupShareButtons() {
+            const shareUrl = window.location.href;
+            const title = 'قاموس مصطلحات الأمن السيبراني';
+            
+            document.getElementById('shareWhatsapp').addEventListener('click', function(e) {
+                e.preventDefault();
+                window.open(`https://wa.me/?text=${encodeURIComponent(title + ': ' + shareUrl)}`, '_blank');
+            });
+            
+            document.getElementById('shareTwitter').addEventListener('click', function(e) {
+                e.preventDefault();
+                window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(shareUrl)}`, '_blank');
+            });
+            
+            document.getElementById('shareFacebook').addEventListener('click', function(e) {
+                e.preventDefault();
+                window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`, '_blank');
+            });
+            
+            document.getElementById('shareLink').addEventListener('click', function(e) {
+                e.preventDefault();
+                navigator.clipboard.writeText(shareUrl).then(() => {
+                    alert('تم نسخ الرابط إلى الحافظة!');
+                });
+            });
+        }
+    </script>
+</body>
+</html>
