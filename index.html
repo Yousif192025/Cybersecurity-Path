@@ -368,16 +368,14 @@
         <i class="fas fa-bars menu-toggle" id="menu-toggle"></i>
         <nav id="mobile-menu" class="mobile-menu">
             <a href="it-cybersecurity.html" class="header-btn">الأمن السيبراني لتكنولوجيا المعلومات</a>
-            <a href="glossary/index.html" class="btn">قاموس الأمن السيبراني</a>
-            <button id="glossary/index.html" class="btn">قاموس الأمن السيبراني</button>
-            <button id="lang-ar-btn" class="header-btn">العربية</button>
+            <a href="glossary/index.html" class="btn">قاموس الأمن السيبراني</a> <button id="lang-ar-btn" class="header-btn">العربية</button>
             <button id="lang-en-btn" class="header-btn">English</button>
             <button id="search-web-btn" class="header-btn">بحث في الويب</button>
         </nav>
         
         <div class="header-controls">
             <a href="it-cybersecurity.html" class="header-btn">الأمن السيبراني لتكنولوجيا المعلومات</a>
-            <button id="register-btn-desktop" class="header-btn">التسجيل</button>
+            <a href="glossary/index.html" class="btn">قاموس الأمن السيبراني</a> <button id="register-btn-desktop" class="header-btn">التسجيل</button>
             <button id="lang-ar-btn-desktop" class="header-btn">العربية</button>
             <button id="lang-en-btn-desktop" class="header-btn">English</button>
             <button id="search-web-btn-desktop" class="header-btn">بحث في الويب</button>
@@ -717,71 +715,57 @@
             <p>ألعاب حربية لتعلم الأمن السيبراني</p>
             <a href="https://overthewire.org/wargames/" target="_blank">زيارة الموقع</a>
         </div>
-        <div class="resource-card">
-            <h4>Detection Lab</h4>
-            <p>معمل افتراضي جاهز لمحاكاة بيئات الأمن</p>
-            <a href="https://github.com/securityonion/detectionlab" target="_blank">عرض المشروع</a>
-        </div>
     </div>
-    
-    <h3>🧾 تقارير وأدلة احترافية:</h3>
-    <div class="resources">
-        <div class="resource-card">
-            <h4>MITRE ATT&CK</h4>
-            <p>قاعدة معرفة عالمية لتقنيات الهجوم والدفاع</p>
-            <a href="https://attack.mitre.org/" target="_blank">زيارة الموقع</a>
-        </div>
-        <div class="resource-card">
-            <h4>OWASP Top Ten</h4>
-            <p>أهم 10 مخاطر أمنية لتطبيقات الويب</p>
-            <a href="https://owasp.org/www-project-top-ten/" target="_blank">عرض التقرير</a>
-        </div>
-    </div>
+    <button onclick="topFunction()" id="scrollToTopBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+
     <footer>
-        <h3>المعهد الأهلي العالي للتدريب</h3>
-        <h3>تواصل معنا</h3>
-        <p class="contact-info">
-            <a href="https://api.whatsapp.com/send?phone=966502161465" target="_blank" class="whatsapp-btn">
-                <i class="fab fa-whatsapp"></i> 0502161465  
-            </a>
-            <a href="contact_form.html" class="contact-btn">تواصل معنا</a>
-        </p>
-        <p>&copy;@2025 Yousif E.Hashim جميع الحقوق محفوظة</p>
-        <p>محافظة القريات-الجوف-المملكة العربية السعودية</p>
+        <div class="container">
+            <h3>تواصل معنا</h3>
+            <p>إذا كان لديك أي أسئلة أو اقتراحات، فلا تتردد في التواصل معنا.</p>
+            <div class="contact-info">
+                <p><i class="fas fa-envelope"></i> example@example.com</p>
+                <p><i class="fab fa-twitter"></i> @YourCyberHandle</p>
+            </div>
+            <a href="https://wa.me/YOUR_PHONE_NUMBER" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i> تواصل عبر واتساب</a>
+            <p>تم إنشاء هذا التطبيق التعليمي لمساعدة المتدربين على فهم مصطلحات الأمن السيبراني</p>
+            <p>© 2023 - جميع الحقوق محفوظة</p>
+        </div>
     </footer>
 
-    <button id="scrollToTopBtn" title="الذهاب للأعلى">⬆️</button>
-
     <script>
-        // Smooth scroll to top functionality
-        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+        // Get the button
+        let mybutton = document.getElementById("scrollToTopBtn");
 
-        window.onscroll = function() {
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
             if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                scrollToTopBtn.style.display = "block";
+                mybutton.style.display = "block";
             } else {
-                scrollToTopBtn.style.display = "none";
+                mybutton.style.display = "none";
             }
-        };
+        }
 
-        scrollToTopBtn.addEventListener("click", function() {
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-        });
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
 
-        // Mobile menu toggle functionality
+        // Mobile menu toggle
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
 
-        menuToggle.addEventListener('click', function() {
+        menuToggle.addEventListener('click', () => {
             mobileMenu.classList.toggle('active');
         });
 
         // Close menu when clicking outside (optional, but good for UX)
-        document.addEventListener('click', function(event) {
-            if (!mobileMenu.contains(event.target) && !menuToggle.contains(event.target)) {
+        document.addEventListener('click', (event) => {
+            const isClickInsideMenu = mobileMenu.contains(event.target);
+            const isClickOnToggle = menuToggle.contains(event.target);
+            if (!isClickInsideMenu && !isClickOnToggle && mobileMenu.classList.contains('active')) {
                 mobileMenu.classList.remove('active');
             }
         });
