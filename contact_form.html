@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>تواصل معنا</title>
+  <title>نموذج تواصل معنا</title>
   <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet">
   <style>
     body {
@@ -83,14 +83,6 @@
       background-color: #005fa3;
     }
 
-    .success-message {
-      color: green;
-      text-align: center;
-      margin-top: 20px;
-      display: none;
-      font-weight: bold;
-    }
-
     .address li {
       list-style: none;
       margin-bottom: 15px;
@@ -148,26 +140,30 @@
   <div class="container">
     <div class="row align-items-center">
 
+      <!-- نموذج التواصل -->
       <div class="col-lg-8">
         <div class="contact-wrap">
           <div class="contact-form">
             <div class="contact-title">
               <h2>اكتب لنا</h2>
             </div>
-            <form id="contactForm">
+            <form action="https://formspree.io/f/mpwrgano" method="POST">
+              <!-- Honeypot Field (anti-spam) -->
+              <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
               <div>
                 <label for="name">الاسم</label>
-                <input type="text" name="name" id="name" required maxlength="150" />
+                <input type="text" name="name" id="name" required maxlength="100">
               </div>
 
               <div>
                 <label for="email">البريد الإلكتروني</label>
-                <input type="email" name="email" id="email" required maxlength="150" />
+                <input type="email" name="email" id="email" required maxlength="150">
               </div>
 
               <div>
                 <label for="subject">الموضوع</label>
-                <input type="text" name="subject" id="subject" required maxlength="150" />
+                <input type="text" name="subject" id="subject" required maxlength="150">
               </div>
 
               <div>
@@ -175,29 +171,27 @@
                 <textarea name="message" id="message" rows="6" required maxlength="500"></textarea>
               </div>
 
-              <input type="submit" value="إرسال" />
+              <input type="submit" value="إرسال">
             </form>
-
-            <div class="success-message" id="success-message">
-              تم إرسال رسالتك بنجاح! سنقوم بالتواصل معك قريبًا.<br />
-              <button onclick="window.history.back()">الرجوع</button>
-            </div>
-
           </div>
         </div>
       </div>
 
+      <!-- بيانات التواصل -->
       <div class="col-lg-4">
         <div class="contact-info">
           <h3>بيانات الاتصال بنا</h3>
           <p>
-            يسر فريقنا المتخصص في الأمن السيبراني استقبال استفساراتكم الأكاديمية والفنية، وتقديم الإرشادات المتعلقة بالمجالات المختلفة مثل حماية الشبكات، اختبار الاختراق، إدارة المخاطر، والامتثال للمعايير الأمنية. نحن هنا لدعمكم في مسيرتكم التعليمية والمهنية وتعزيز الوعي الأمني الرقمي لديكم.
+            يسر فريقنا المتخصص في الأمن السيبراني استقبال استفساراتكم الأكاديمية والفنية،
+            وتقديم الإرشادات المتعلقة بالمجالات المختلفة مثل حماية الشبكات، اختبار الاختراق،
+            إدارة المخاطر، والامتثال للمعايير الأمنية.
           </p>
           <ul class="address">
             <li class="location">
               <i class="bx bxs-location-plus"></i>
-              <span>العنوان:</span> القريات - طريق المدينة المنورة
-              <br />
+              <span>العنوان:</span>
+              طريق المدينة المنورة، القريات، المملكة العربية السعودية
+              <br>
               <a href="https://maps.app.goo.gl/ESShHnBdqTFWSPDR6" target="_blank" style="color:blue;text-decoration: underline;">انقر هنا (موقعنا GPS)</a>
             </li>
             <li>
@@ -208,10 +202,11 @@
             <li>
               <i class="bx bxs-envelope"></i>
               <span>البريد الإلكتروني:</span>
-              <a href="mailto:alahli192024@gmail.com">alahli192024@gmail.com</a><br />
+              <a href="mailto:alahli192024@gmail.com">alahli192024@gmail.com</a><br>
               <a href="https://teams.microsoft.com/v2//">Teams: alahli192024@gmail.com</a>
             </li>
           </ul>
+
           <div class="sidebar-follow-us">
             <h3>تابعنا عبر:</h3>
             <ul class="social-wrap">
@@ -228,6 +223,7 @@
   </div>
 </section>
 
+<!-- خريطة الموقع -->
 <div class="map-area">
   <iframe
     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.9615787574527!2d37.3175677!3d31.3311972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151aa231d1934bcd%3A0x84c7c15384ae8998!2z2KfZhNmF2KzYp9mFINmF2KfZhtmK2Kkg2KfZhNiz2YXYsdmK2Kkg2YTZhNin2LHYp9mG2Iwg2KfZhNmF2KzYp9mFINin2YTZhdit2YXYrQ!5e0!3m2!1sar!2ssa!4v1720268662655!5m2!1sar!2ssa"
@@ -238,32 +234,8 @@
 </div>
 
 <footer>
-  <p>جميع الحقوق محفوظة &copy; Yousif 2025</p>
+  <p>جميع الحقوق محفوظة &copy; Yousif @2025</p>
 </footer>
-
-<script>
-  const form = document.getElementById("contactForm");
-  const successMessage = document.getElementById("success-message");
-
-  form.addEventListener("submit", async function (e) {
-    e.preventDefault();
-
-    const formData = new FormData(form);
-    const response = await fetch("https://formspree.io/f/mpwrgano", {
-      method: "POST",
-      body: formData,
-      headers: { 'Accept': 'application/json' }
-    });
-
-    if (response.ok) {
-      form.style.display = "none";
-      successMessage.style.display = "block";
-      setTimeout(() => window.history.back(), 5000); // رجوع تلقائي بعد 5 ثوانٍ
-    } else {
-      alert("حدث خطأ أثناء الإرسال. يرجى المحاولة لاحقًا.");
-    }
-  });
-</script>
 
 </body>
 </html>
