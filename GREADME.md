@@ -1,4 +1,3 @@
-
 Cybersecurity-Path/                  # المجلد الرئيسي (المستودع)
 ├── public/                          # كل الملفات العامة
 │   ├── assets/
