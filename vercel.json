@@ -1,0 +1,11 @@
+{
+  "routes": [
+    {
+      "src": "/admin/.*",
+      "dest": "/admin/dashboard.html",
+      "headers": {
+        "WWW-Authenticate": "Basic"
+      }
+    }
+  ]
+}
