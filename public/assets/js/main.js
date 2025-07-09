@@ -1,4 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // دمج القائمة المشتركة
+    fetch('/assets/components/navbar.html')
+        .then(response => response.text())
+        .then(data => {
+            document.querySelector('header').innerHTML = data;
+        });
+
+    // مصطلحات الأمن السيبراني وتعريفاتها
     const terms = {
         "الأمن السيبراني": "هو حماية الأنظمة والشبكات والبرامج والبيانات من الهجمات الرقمية. تهدف هذه الهجمات عادة إلى الوصول إلى المعلومات الحساسة أو تغييرها أو تدميرها، أو ابتزاز المال من المستخدمين، أو مقاطعة العمليات التجارية العادية.",
         "أمن الكمبيوتر": "يركز على حماية الأجهزة والبرامج والبيانات على الكمبيوتر الفردي أو الشبكة المحلية. يتضمن ذلك الحماية من البرامج الضارة، الوصول غير المصرح به، وسرقة البيانات من الجهاز نفسه.",
@@ -15,41 +23,37 @@ document.addEventListener('DOMContentLoaded', () => {
     const glossaryContainer = document.querySelector('.glossary-container');
     const definitionText = document.getElementById('definition-text');
     const definitionArea = document.getElementById('definition-area');
-    const definitionAreaTitle = definitionArea.querySelector('h2'); // للحصول على عنوان منطقة التعريف
+    const definitionAreaTitle = definitionArea.querySelector('h2');
 
-    // إضافة أزرار المصطلحات ديناميكيًا
+    // إنشاء أزرار المصطلحات
     for (const term in terms) {
         const button = document.createElement('button');
         button.classList.add('term-button');
         button.textContent = term;
         button.addEventListener('click', () => {
-            definitionAreaTitle.textContent = term; // تحديث عنوان منطقة التعريف باسم المصطلح
+            definitionAreaTitle.textContent = term;
             definitionText.textContent = terms[term];
-            // يمكن إضافة تأثيرات هنا عند عرض التعريف
         });
         glossaryContainer.appendChild(button);
     }
 });
-// script.js
 
-// Get the button
+// زر العودة للأعلى
 let mybutton = document.getElementById("scrollToTopBtn");
 
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
+window.onscroll = function () { scrollFunction(); };
 
 function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    mybutton.style.display = "block";
-  } else {
-    mybutton.style.display = "none";
-  }
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+    } else {
+        mybutton.style.display = "none";
+    }
 }
 
-// When the user clicks on the button, scroll to the top of the document
 function topFunction() {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth' // Smooth scroll
-  });
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
 }
