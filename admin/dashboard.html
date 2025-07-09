@@ -2,20 +2,180 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>لوحة التحكم</title>
-    <link rel="stylesheet" href="/admin/assets/admin.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة تحكم Cybersecurity-Path</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/admin/assets/css/admin.css">
 </head>
 <body>
-    <div class="sidebar">
-        <h2>لوحة التحكم</h2>
-        <ul>
-            <li><a href="/admin/manage-glossary.html">إدارة القاموس</a></li>
-            <li><a href="/admin/manage-content.html">إدارة المحتوى التقني</a></li>
-        </ul>
+    <header class="admin-header">
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i>
+                <h1>Cybersecurity-Path Dashboard</h1>
+            </div>
+            <div class="admin-controls">
+                <div class="user-info">
+                    <div class="user-avatar">ي</div>
+                    <div class="user-details">
+                        <div class="user-name">يوسف هاشم</div>
+                        <div class="user-role">مدير النظام</div>
+                    </div>
+                </div>
+                <button class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <div class="admin-container">
+        <!-- القائمة الجانبية -->
+        <aside class="admin-sidebar">
+            <ul class="admin-menu">
+                <li class="menu-title">القائمة الرئيسية</li>
+                <li class="menu-item active">
+                    <a href="#">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>لوحة التحكم</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="/admin/views/manage-glossary.html">
+                        <i class="fas fa-book"></i>
+                        <span>إدارة القاموس</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="/admin/views/manage-content.html">
+                        <i class="fas fa-file-alt"></i>
+                        <span>إدارة المحتوى</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#">
+                        <i class="fas fa-users"></i>
+                        <span>إدارة المستخدمين</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#">
+                        <i class="fas fa-chart-line"></i>
+                        <span>الإحصائيات</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#">
+                        <i class="fas fa-cog"></i>
+                        <span>الإعدادات</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+        
+        <!-- المحتوى الرئيسي -->
+        <main class="admin-content">
+            <div class="content-header">
+                <h2><i class="fas fa-tachometer-alt"></i> نظرة عامة</h2>
+                <div class="breadcrumb">
+                    <a href="#">الرئيسية</a> / <span>لوحة التحكم</span>
+                </div>
+            </div>
+            
+            <div class="stats-cards">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>مصطلحات القاموس</h3>
+                        <p>125</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>صفحات المحتوى</h3>
+                        <p>18</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>المستخدمون</h3>
+                        <p>42</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>الزيارات</h3>
+                        <p>1,248</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content-sections">
+                <section class="recent-activity">
+                    <h3><i class="fas fa-history"></i> النشاط الحديث</h3>
+                    <ul class="activity-list">
+                        <li>
+                            <i class="fas fa-plus-circle success"></i>
+                            <span>تمت إضافة مصطلح جديد "التصيد الاحتيالي"</span>
+                            <span class="activity-time">منذ 15 دقيقة</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-edit warning"></i>
+                            <span>تم تعديل صفحة "أساسيات الأمن السيبراني"</span>
+                            <span class="activity-time">منذ ساعتين</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-user-plus info"></i>
+                            <span>مستخدم جديد مسجل: أحمد محمد</span>
+                            <span class="activity-time">منذ 5 ساعات</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-trash danger"></i>
+                            <span>تم حذف مصطلح "هجوم DDoS"</span>
+                            <span class="activity-time">منذ يوم</span>
+                        </li>
+                    </ul>
+                </section>
+                
+                <section class="quick-actions">
+                    <h3><i class="fas fa-bolt"></i> إجراءات سريعة</h3>
+                    <div class="action-buttons">
+                        <a href="/admin/views/manage-glossary.html" class="action-btn">
+                            <i class="fas fa-plus"></i>
+                            <span>إضافة مصطلح جديد</span>
+                        </a>
+                        <a href="/admin/views/manage-content.html" class="action-btn">
+                            <i class="fas fa-file-alt"></i>
+                            <span>إنشاء صفحة جديدة</span>
+                        </a>
+                        <a href="#" class="action-btn">
+                            <i class="fas fa-user-plus"></i>
+                            <span>إضافة مستخدم</span>
+                        </a>
+                        <a href="#" class="action-btn">
+                            <i class="fas fa-cog"></i>
+                            <span>تعديل الإعدادات</span>
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </main>
     </div>
-    <div class="main-content">
-        <h1>مرحبًا بك في لوحة التحكم</h1>
-    </div>
-    <script src="/admin/assets/admin.js"></script>
+
+    <script src="/admin/assets/js/admin.js"></script>
 </body>
 </html>
