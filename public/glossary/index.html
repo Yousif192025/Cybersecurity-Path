@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="https://images.contentstack.io/v3/assets/blt36c2e63521272fdc/blt2f0555dca45e068f/60a7f26ea450c25ac83cf8f6/cropped-SANS-Blue-Square-32x32.png" sizes="32x32">
     <link rel="apple-touch-icon" href="https://images.contentstack.io/v3/assets/blt36c2e63521272fdc/bltb065db290a92f932/60a7f27dc8faf774ab45ffd9/cropped-SANS-Blue-Square-180x180.png">
+    <link rel="stylesheet" href="../assets/css/glossary.css">
+    <script src="../assets/js/glossary.js"></script>
     
     <style>
         /* تعريف متغيرات CSS لتسهيل إدارة الألوان */
@@ -379,6 +381,10 @@
     </style>
 </head>
 <body>
+    <a href="../" class="home-link">العودة للصفحة الرئيسية</a>
+    
+    <img src="../assets/images/icons/search.png" alt="بحث">
+
     <header>
         <div class="container">
             <h1><i class="fas fa-shield-alt"></i> قاموس مصطلحات الأمن السيبراني</h1>
@@ -618,6 +624,7 @@
                     
                     if (category === 'all') {
                         renderTerms(terms); // عرض جميع المصطلحات
+                        return;
                     } else {
                         // تصفية المصطلحات بناءً على الفئة المختارة
                         const filteredTerms = terms.filter(term => term.category === category);
