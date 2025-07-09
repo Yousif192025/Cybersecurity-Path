@@ -10,7 +10,7 @@
       "src": "/admin/.*",
       "dest": "/admin/dashboard.html",
       "headers": {
-        "WWW-Authenticate": "Basic realm=\"Restricted Area\""
+        "WWW-Authenticate": "Basic"
       }
     }
   ]
