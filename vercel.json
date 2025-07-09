@@ -1,8 +1,8 @@
 {
   "rewrites": [
-    { "source": "/", "destination": "/index.html" },
+    { "source": "/it-cybersecurity", "destination": "/public/it-cybersecurity.html" },
+    { "source": "/", "destination": "/public/index.html" },
     { "source": "/glossary", "destination": "/glossary/index.html" },
-    { "source": "/it-cybersecurity", "destination": "/it-cybersecurity.html" },
     { "source": "/contact", "destination": "/contact_form.html" }
   ],
   "routes": [
