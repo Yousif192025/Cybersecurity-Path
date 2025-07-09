@@ -1,10 +1,16 @@
 {
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/glossary", "destination": "/glossary/index.html" },
+    { "source": "/it-cybersecurity", "destination": "/it-cybersecurity.html" },
+    { "source": "/contact", "destination": "/contact_form.html" }
+  ],
   "routes": [
     {
       "src": "/admin/.*",
       "dest": "/admin/dashboard.html",
       "headers": {
-        "WWW-Authenticate": "Basic"
+        "WWW-Authenticate": "Basic realm=\"Restricted Area\""
       }
     }
   ]
