@@ -197,8 +197,8 @@
 <body>
     <header>
         <div class="header-controls-wrapper">
-            <a href="/" class="header-btn">العودة للصفحة الرئيسية</a>
-
+            <a href="/" id="home-btn" class="header-btn">العودة للصفحة الرئيسية</a>
+            
             <button id="lang-ar-btn" class="header-btn">العربية</button>
             <button id="lang-en-btn" class="header-btn">English</button>
         </div>
@@ -542,6 +542,17 @@
                 top: 0,
                 behavior: 'smooth'
             });
+        });
+
+        // الكود الجديد لزر العودة للصفحة الرئيسية
+        document.getElementById('home-btn').addEventListener('click', function(event) {
+            event.preventDefault(); // منع السلوك الافتراضي للرابط
+
+            if (window.location.hostname === 'localhost') {
+                window.location.href = '/public/index.html';
+            } else {
+                window.location.href = '/';
+            }
         });
     </script>
 </body>
