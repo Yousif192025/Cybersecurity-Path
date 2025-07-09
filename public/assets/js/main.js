@@ -1,12 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // دمج القائمة المشتركة
+    // ✅ دمج القائمة المشتركة في جميع الصفحات
     fetch('/assets/components/navbar.html')
         .then(response => response.text())
-        .then(data => {
-            document.querySelector('header').innerHTML = data;
+        .then(html => {
+            const header = document.querySelector('header');
+            if (header) header.insertAdjacentHTML('afterbegin', html);
         });
 
-    // مصطلحات الأمن السيبراني وتعريفاتها
+    // ✅ قاموس مصطلحات الأمن السيبراني
     const terms = {
         "الأمن السيبراني": "هو حماية الأنظمة والشبكات والبرامج والبيانات من الهجمات الرقمية. تهدف هذه الهجمات عادة إلى الوصول إلى المعلومات الحساسة أو تغييرها أو تدميرها، أو ابتزاز المال من المستخدمين، أو مقاطعة العمليات التجارية العادية.",
         "أمن الكمبيوتر": "يركز على حماية الأجهزة والبرامج والبيانات على الكمبيوتر الفردي أو الشبكة المحلية. يتضمن ذلك الحماية من البرامج الضارة، الوصول غير المصرح به، وسرقة البيانات من الجهاز نفسه.",
@@ -23,33 +24,33 @@ document.addEventListener('DOMContentLoaded', () => {
     const glossaryContainer = document.querySelector('.glossary-container');
     const definitionText = document.getElementById('definition-text');
     const definitionArea = document.getElementById('definition-area');
-    const definitionAreaTitle = definitionArea.querySelector('h2');
 
-    // إنشاء أزرار المصطلحات
-    for (const term in terms) {
-        const button = document.createElement('button');
-        button.classList.add('term-button');
-        button.textContent = term;
-        button.addEventListener('click', () => {
-            definitionAreaTitle.textContent = term;
-            definitionText.textContent = terms[term];
-        });
-        glossaryContainer.appendChild(button);
+    if (glossaryContainer && definitionArea && definitionText) {
+        const definitionAreaTitle = definitionArea.querySelector('h2');
+
+        for (const term in terms) {
+            const button = document.createElement('button');
+            button.classList.add('term-button');
+            button.textContent = term;
+            button.addEventListener('click', () => {
+                definitionAreaTitle.textContent = term;
+                definitionText.textContent = terms[term];
+            });
+            glossaryContainer.appendChild(button);
+        }
     }
 });
 
-// زر العودة للأعلى
-let mybutton = document.getElementById("scrollToTopBtn");
+// ✅ زر العودة للأعلى
+const mybutton = document.getElementById("scrollToTopBtn");
 
-window.onscroll = function () { scrollFunction(); };
-
-function scrollFunction() {
+window.onscroll = () => {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
         mybutton.style.display = "block";
     } else {
         mybutton.style.display = "none";
     }
-}
+};
 
 function topFunction() {
     window.scrollTo({
