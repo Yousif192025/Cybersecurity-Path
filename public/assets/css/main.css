@@ -9,6 +9,19 @@
     <link rel="stylesheet" href="/assets/css/glossary.css">
     <style>
         /* Basic styles from main.css that are essential for this page too */
+/* تحديث مسارات الخطوط والصور */
+@font-face {
+    src: url('../fonts/Tajawal-Regular.ttf') format('truetype');
+}
+
+body {
+    background-image: url('../images/background.jpg');
+}
+
+/* توحيد أنماط القوائم */
+.nav-link {
+    color: #2c3e50;
+}
         body {
             font-family: 'Tahoma', Arial, sans-serif;
             line-height: 1.8;
