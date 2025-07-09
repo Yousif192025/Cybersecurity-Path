@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة القاموس - Cybersecurity-Path</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/admin/assets/css/admin.css">
+</head>
+<body>
+    <header class="admin-header">
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i>
+                <h1>إدارة القاموس</h1>
+            </div>
+            <div class="admin-controls">
+                <div class="user-info">
+                    <div class="user-avatar">ي</div>
+                    <div class="user-details">
+                        <div class="user-name">يوسف هاشم</div>
+                        <div class="user-role">مدير النظام</div>
+                    </div>
+                </div>
+                <button class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <div class="admin-container">
+        <aside class="admin-sidebar">
+            <ul class="admin-menu">
+                <li class="menu-title">القائمة الرئيسية</li>
+                <li class="menu-item">
+                    <a href="/admin/dashboard.html">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>لوحة التحكم</span>
+                    </a>
+                </li>
+                <li class="menu-item active">
+                    <a href="/admin/views/manage-glossary.html">
+                        <i class="fas fa-book"></i>
+                        <span>إدارة القاموس</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="/admin/views/manage-content.html">
+                        <i class="fas fa-file-alt"></i>
+                        <span>إدارة المحتوى</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#">
+                        <i class="fas fa-users"></i>
+                        <span>إدارة المستخدمين</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#">
+                        <i class="fas fa-cog"></i>
+                        <span>الإعدادات</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+        
+        <main class="admin-content">
+            <div class="content-header">
+                <h2><i class="fas fa-book"></i> إدارة مصطلحات القاموس</h2>
+                <div class="breadcrumb">
+                    <a href="/admin/dashboard.html">الرئيسية</a> / <span>إدارة القاموس</span>
+                </div>
+            </div>
+            
+            <div class="action-bar">
+                <div class="search-box">
+                    <input type="text" placeholder="ابحث عن مصطلح...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <button class="add-btn">
+                    <i class="fas fa-plus"></i> إضافة مصطلح جديد
+                </button>
+            </div>
+            
+            <div class="data-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>المصطلح (عربي)</th>
+                            <th>المصطلح (إنجليزي)</th>
+                            <th>التصنيف</th>
+                            <th>الحالة</th>
+                            <th>الإجراءات</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>التصيد الاحتيالي</td>
+                            <td>Phishing</td>
+                            <td>الهجمات</td>
+                            <td><span class="status active">نشط</span></td>
+                            <td>
+                                <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                                <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>جدار الحماية</td>
+                            <td>Firewall</td>
+                            <td>الحماية</td>
+                            <td><span class="status active">نشط</span></td>
+                            <td>
+                                <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                                <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>التشفير</td>
+                            <td>Encryption</td>
+                            <td>الحماية</td>
+                            <td><span class="status inactive">غير نشط</span></td>
+                            <td>
+                                <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                                <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="pagination">
+                <button class="page-btn"><i class="fas fa-angle-right"></i></button>
+                <span class="page-number">1</span>
+                <button class="page-btn"><i class="fas fa-angle-left"></i></button>
+            </div>
+        </main>
+    </div>
+
+    <script src="/admin/assets/js/admin.js"></script>
+</body>
+</html>
