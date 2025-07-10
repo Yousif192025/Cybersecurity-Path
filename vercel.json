@@ -8,6 +8,13 @@
     { "source": "/admin/:path*", "destination": "/public/admin/dashboard.html" },
     { "source": "/assets/:path*", "destination": "/public/assets/:path*" }
   ],
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/public/admin/dashboard.html",
+      "statusCode": 301
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
