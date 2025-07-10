@@ -19,18 +19,14 @@ jobs:
       with:
         node-version: 20 # استخدام إصدار Node.js 20. تأكد أن هذا الإصدار مناسب لمشروعك.
         
-    # خطوة تثبيت التبعيات:
-    # هذه الخطوة ضرورية إذا كان مشروعك يستخدم Node.js ولديه ملف package.json (مثل مشاريع React, Vue, أو أدوات البناء).
-    # إذا كان مشروعك مجرد HTML/CSS/JS ثابت بدون تبعيات Node.js، يمكنك إزالة هذه الخطوة.
+    # تخطي هذه الخطوة إذا لم يكن لديك package.json أو لا تحتاج إلى تثبيت تبعيات Node.js
     - name: Install dependencies
       run: |
         if [ -f "package.json" ]; then
           npm ci # 'npm ci' أفضل من 'npm install' في بيئات CI/CD لأنه يضمن تثبيت التبعيات بالضبط كما هي في package-lock.json
         fi
         
-    # خطوة بناء المشروع:
-    # هذه الخطوة ضرورية إذا كان مشروعك يتطلب عملية بناء لإنشاء ملفات قابلة للنشر (مثل تحويل كود React إلى HTML/CSS/JS).
-    # إذا كان مشروعك مجرد ملفات HTML/CSS/JS ثابتة جاهزة للنشر مباشرة (لا يوجد أمر 'build' في package.json)، يمكنك إزالة هذه الخطوة.
+    # تخطي إذا لم يكن لديك أمر بناء (مثلاً، إذا كانت ملفاتك HTML/CSS/JS جاهزة مباشرة)
     - name: Build project
       run: |
         if [ -f "package.json" ]; then
@@ -39,15 +35,18 @@ jobs:
           echo "No build step required" # رسالة توضيحية إذا لم يكن هناك ملف package.json
         fi
         
+    - name: Prepare deployment directory # خطوة جديدة لإنشاء المجلد النهائي للنشر
+      run: |
+        mkdir _site_to_publish # إنشاء مجلد مؤقت
+        cp -r public/* _site_to_publish/ # نسخ محتويات مجلد public إلى جذر المجلد المؤقت
+        cp -r admin _site_to_publish/    # نسخ مجلد admin بالكامل إلى _site_to_publish/admin/
+        touch _site_to_publish/.nojekyll # إضافة ملف .nojekyll لتعطيل معالج Jekyll
+
     - name: Deploy # خطوة النشر الفعلية إلى GitHub Pages.
       uses: peaceiris/actions-gh-pages@v4 # استخدام الإجراء المخصص للنشر.
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }} # رمز التوثيق الذي يوفره GitHub تلقائيًا.
-        publish_dir: ./public # **هذه هي النقطة الأكثر أهمية:**
-                               # تأكد أن ملفات موقعك النهائية (HTML, CSS, JS, صور) موجودة داخل هذا المجلد.
-                               # إذا كانت ملفاتك في المجلد الجذر للمستودع، قم بتغييرها إلى '.' (نقطة واحدة).
-                               # إذا كانت في مجلد آخر (مثل 'dist' أو 'build')، قم بتغييرها وفقًا لذلك.
+        publish_dir: ./_site_to_publish # توجيه النشر إلى المجلد المؤقت الذي تم إعداده
         keep_files: false # يمسح جميع الملفات الموجودة في فرع gh-pages قبل النشر. يضمن بيئة نظيفة.
         force_orphan: true # ينشئ commit جديدًا "يتيمًا" في كل مرة، مما يعني أن سجل الفرع سيكون نظيفًا.
         # publish_branch: gh-pages # (اختياري) الفرع الذي سيتم النشر عليه. الافتراضي هو 'gh-pages'.
-                                   # إذا كنت تريد النشر على فرع آخر (مثل 'docs' أو 'web'), قم بتحديده هنا.
