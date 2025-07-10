@@ -1,17 +1,17 @@
 {
   "rewrites": [
-    { "source": "/it-cybersecurity", "destination": "/public/it-cybersecurity.html" },
-    { "source": "/", "destination": "/public/index.html" },
-    { "source": "/glossary", "destination": "/public/glossary/index.html" },
-    { "source": "/contact", "destination": "/public/contact_form.html" },
-    { "source": "/admin", "destination": "/public/admin/dashboard.html" },
-    { "source": "/admin/:path*", "destination": "/public/admin/dashboard.html" },
-    { "source": "/assets/:path*", "destination": "/public/assets/:path*" }
+    { "source": "/it-cybersecurity", "destination": "/it-cybersecurity.html" },
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/glossary", "destination": "/glossary/index.html" },
+    { "source": "/contact", "destination": "/contact_form.html" },
+    { "source": "/admin", "destination": "/admin/dashboard.html" },
+    { "source": "/admin/:path*", "destination": "/admin/dashboard.html" },
+    { "source": "/assets/:path*", "destination": "/assets/:path*" }
   ],
   "redirects": [
     {
-      "source": "/",
-      "destination": "/public/admin/dashboard.html",
+      "source": "/home",
+      "destination": "/admin/dashboard.html",
       "statusCode": 301
     }
   ],
