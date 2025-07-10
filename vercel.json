@@ -1,4 +1,6 @@
 {
+  "version": 2,
+  "public": true,
   "rewrites": [
     { "source": "/it-cybersecurity", "destination": "/it-cybersecurity.html" },
     { "source": "/", "destination": "/index.html" },
@@ -6,13 +8,19 @@
     { "source": "/contact", "destination": "/contact_form.html" },
     { "source": "/admin", "destination": "/admin/dashboard.html" },
     { "source": "/admin/:path*", "destination": "/admin/dashboard.html" },
-    { "source": "/assets/:path*", "destination": "/assets/:path*" }
+    { "source": "/assets/:path*", "destination": "/assets/:path*" },
+    { "source": "/:path*", "destination": "/index.html" }  // هذا بديل لـ "/(.*)"
   ],
   "redirects": [
     {
       "source": "/home",
       "destination": "/admin/dashboard.html",
       "statusCode": 301
+    },
+    {
+      "source": "/",
+      "destination": "/index.html",
+      "permanent": true
     }
   ],
   "headers": [
