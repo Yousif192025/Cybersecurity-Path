@@ -1,44 +1,53 @@
-name: Deploy to GitHub Pages
+name: Deploy to GitHub Pages # اسم سير العمل (Workflow)
 
 on:
   push:
-    branches: [ main ]  # تغيير لـ master إذا كنت تستخدمه
+    branches: [ main ] # الفرع الذي سيؤدي إلى تشغيل هذا السير العمل. تأكد أنه 'main' أو 'master' حسب فرعك الرئيسي.
 
 permissions:
-  contents: write  # ضروري للكتابة على فرع gh-pages
+  contents: write # هذا الإذن ضروري لتمكين GitHub Actions من الكتابة على فرع gh-pages.
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
-    
+    runs-on: ubuntu-latest # البيئة التي سيتم عليها تشغيل هذا العمل.
+
     steps:
-    - uses: actions/checkout@v4  # استخدام الإصدار الأحدث
-    
-    - name: Setup Node
+    - uses: actions/checkout@v4 # يسحب (Clones) مستودعك إلى بيئة العمل.
+
+    - name: Setup Node # إعداد بيئة Node.js.
       uses: actions/setup-node@v4
       with:
-        node-version: 20  # استخدام إصدار أحدث من Node
+        node-version: 20 # استخدام إصدار Node.js 20. تأكد أن هذا الإصدار مناسب لمشروعك.
         
-    # تخطي هذه الخطوة إذا لم يكن لديك package.json
+    # خطوة تثبيت التبعيات:
+    # هذه الخطوة ضرورية إذا كان مشروعك يستخدم Node.js ولديه ملف package.json (مثل مشاريع React, Vue, أو أدوات البناء).
+    # إذا كان مشروعك مجرد HTML/CSS/JS ثابت بدون تبعيات Node.js، يمكنك إزالة هذه الخطوة.
     - name: Install dependencies
       run: |
         if [ -f "package.json" ]; then
-          npm ci  # أسرع من npm install
+          npm ci # 'npm ci' أفضل من 'npm install' في بيئات CI/CD لأنه يضمن تثبيت التبعيات بالضبط كما هي في package-lock.json
         fi
         
-    # تخطي إذا لم يكن لديك أمر بناء
+    # خطوة بناء المشروع:
+    # هذه الخطوة ضرورية إذا كان مشروعك يتطلب عملية بناء لإنشاء ملفات قابلة للنشر (مثل تحويل كود React إلى HTML/CSS/JS).
+    # إذا كان مشروعك مجرد ملفات HTML/CSS/JS ثابتة جاهزة للنشر مباشرة (لا يوجد أمر 'build' في package.json)، يمكنك إزالة هذه الخطوة.
     - name: Build project
       run: |
         if [ -f "package.json" ]; then
-          npm run build --if-present
+          npm run build --if-present # يشغل أمر 'build' إذا كان موجودًا في package.json
         else
-          echo "No build step required"
+          echo "No build step required" # رسالة توضيحية إذا لم يكن هناك ملف package.json
         fi
         
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v4  # الإصدار الأحدث
+    - name: Deploy # خطوة النشر الفعلية إلى GitHub Pages.
+      uses: peaceiris/actions-gh-pages@v4 # استخدام الإجراء المخصص للنشر.
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./public
-        keep_files: false  # لضمان نظافة الفرع
-        force_orphan: true  # إنشاء فرع جديد نظيف كل مرة
+        github_token: ${{ secrets.GITHUB_TOKEN }} # رمز التوثيق الذي يوفره GitHub تلقائيًا.
+        publish_dir: ./public # **هذه هي النقطة الأكثر أهمية:**
+                               # تأكد أن ملفات موقعك النهائية (HTML, CSS, JS, صور) موجودة داخل هذا المجلد.
+                               # إذا كانت ملفاتك في المجلد الجذر للمستودع، قم بتغييرها إلى '.' (نقطة واحدة).
+                               # إذا كانت في مجلد آخر (مثل 'dist' أو 'build')، قم بتغييرها وفقًا لذلك.
+        keep_files: false # يمسح جميع الملفات الموجودة في فرع gh-pages قبل النشر. يضمن بيئة نظيفة.
+        force_orphan: true # ينشئ commit جديدًا "يتيمًا" في كل مرة، مما يعني أن سجل الفرع سيكون نظيفًا.
+        # publish_branch: gh-pages # (اختياري) الفرع الذي سيتم النشر عليه. الافتراضي هو 'gh-pages'.
+                                   # إذا كنت تريد النشر على فرع آخر (مثل 'docs' أو 'web'), قم بتحديده هنا.
