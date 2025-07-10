@@ -2,33 +2,29 @@
   "rewrites": [
     { "source": "/it-cybersecurity", "destination": "/public/it-cybersecurity.html" },
     { "source": "/", "destination": "/public/index.html" },
-    { "source": "/glossary", "destination": "/glossary/index.html" },
-    { "source": "/contact", "destination": "/contact_form.html" }
-  ],
-  "routes": [
-    { "src": "/", "dest": "/public/index.html" },
-    { "src": "/glossary", "dest": "/public/glossary/index.html" },
-    {
-      "src": "/admin",
-      "dest": "/admin/dashboard.html",
-      "headers": {
-        "WWW-Authenticate": "Basic"
-      }
-    },
-    {
-      "src": "/admin/(.*)",
-      "dest": "/admin/dashboard.html",
-      "headers": {
-        "WWW-Authenticate": "Basic"
-      }
-    },
-    { "src": "/assets/(.*)", "dest": "/public/assets/$1" }
+    { "source": "/glossary", "destination": "/public/glossary/index.html" },
+    { "source": "/contact", "destination": "/public/contact_form.html" },
+    { "source": "/admin", "destination": "/public/admin/dashboard.html" },
+    { "source": "/admin/:path*", "destination": "/public/admin/dashboard.html" },
+    { "source": "/assets/:path*", "destination": "/public/assets/:path*" }
   ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/admin",
+      "headers": [
+        { "key": "WWW-Authenticate", "value": "Basic" }
+      ]
+    },
+    {
+      "source": "/admin/(.*)",
+      "headers": [
+        { "key": "WWW-Authenticate", "value": "Basic" }
       ]
     }
   ]
